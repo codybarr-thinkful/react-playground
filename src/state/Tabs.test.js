@@ -1,10 +1,12 @@
 import React from 'react'
-import TheDate from './state/TheDate'
-import Counter from './state/Counter'
-import Tabs from './state/Tabs'
-import DemonynApp from './demonymapp/demonymApp'
+import ReactDOM from 'react-dom'
 
-function App() {
+import { shallow } from 'enzyme'
+import toJson from 'enzyme-to-json'
+
+import Tabs from './Tabs'
+
+describe(`Tabs Component`, () => {
 	const tabsProp = [
 		{
 			name: 'First tab',
@@ -23,15 +25,28 @@ function App() {
 		}
 	]
 
-	return (
-		<div className='App'>
-			<h1>YOUR APPLICATION NAME!</h1>
-			<TheDate />
-			<Counter step={2} />
-			<Tabs tabs={tabsProp} />
-			<DemonynApp />
-		</div>
-	)
-}
+	it('renders without errors', () => {
+		const div = document.createElement('div')
+		ReactDOM.render(<Tabs />, div)
+		ReactDOM.unmountComponentAtNode(div)
+	})
 
-export default App
+	it('renders the first tab by default', () => {
+		const wrapper = shallow(<Tabs tabs={tabsProp} />)
+		expect(toJson(wrapper)).toMatchSnapshot()
+	})
+
+	it('renders empty given no tabs', () => {
+		const wrapper = shallow(<Tabs />)
+		expect(toJson(wrapper)).toMatchSnapshot()
+	})
+
+	it('closes the first tab and opens any clicked tab', () => {
+		const wrapper = shallow(<Tabs tabs={tabsProp} />)
+		wrapper
+			.find('button')
+			.at(1)
+			.simulate('click')
+		expect(toJson(wrapper)).toMatchSnapshot()
+	})
+})
