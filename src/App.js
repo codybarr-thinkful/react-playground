@@ -24,7 +24,7 @@ function App() {
 	]
 
 	return (
-		<div className='App'>
+		<div className="App">
 			<h1>YOUR APPLICATION NAME!</h1>
 			<TheDate />
 			<Counter step={2} />
