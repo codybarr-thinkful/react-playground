@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import './index.css'
 
 import { BrowserRouter } from 'react-router-dom'
-import App from './paltrows-power-toes/App'
+import App from './router/App'
 
 ReactDOM.render(
 	<BrowserRouter>
