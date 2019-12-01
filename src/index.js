@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 import './index.css'
 
 import { BrowserRouter } from 'react-router-dom'
-import App from './router/App'
+// import App from './router/App'
+import App from './lang-context/AppLang'
 
 ReactDOM.render(
 	<BrowserRouter>
