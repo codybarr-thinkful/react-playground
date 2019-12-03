@@ -2,13 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
-import { BrowserRouter } from 'react-router-dom'
 // import App from './router/App'
-import App from './lang-context/AppLang'
+import App from './playingwithdanger/App'
 
-ReactDOM.render(
-	<BrowserRouter>
-		<App />
-	</BrowserRouter>,
-	document.getElementById('root')
-)
+ReactDOM.render(<App />, document.getElementById('root'))
